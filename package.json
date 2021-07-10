@@ -1,0 +1,50 @@
+{
+  "name": "react-native-lazy-index",
+  "version": "1.0.2",
+  "description": "RAM bundle friendly index.js with on-demand loaded modules",
+  "keywords": [
+    "babel",
+    "bundle",
+    "codegen",
+    "index.js",
+    "inline",
+    "lazy",
+    "macro",
+    "on-demand",
+    "performance",
+    "ram",
+    "react",
+    "react-native",
+    "require"
+  ],
+  "homepage": "https://github.com/microsoft/react-native-lazy-index#readme",
+  "bugs": "https://github.com/microsoft/react-native-lazy-index/issues",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoft/react-native-lazy-index.git"
+  },
+  "scripts": {
+    "ci:test": "yarn format && yarn codegen && git diff && test $(git diff | grep -c '$') -eq 0",
+    "codegen": "babel --plugins codegen index.js > index.js.out",
+    "format": "prettier --write $(git ls-files '*.js' '*.json')"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0-0",
+    "babel-plugin-codegen": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.59"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "prettier": "2.0.5"
+  },
+  "experiences": {
+    "FeatureA": "@contoso/feature-a",
+    "FeatureB": "@contoso/feature-b",
+    "FeatureC": "@contoso/feature-c",
+    "FeatureD": "@contoso/feature-d"
+  }
+}
